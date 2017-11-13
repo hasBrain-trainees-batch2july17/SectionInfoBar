@@ -1,0 +1,1 @@
+This app will create extension for collectionView to show collection under SectionInfoBar. Data must be aggregated at least one column
