@@ -9,39 +9,37 @@
 import UIKit
 
 class CollectionCustomCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+   
     // Element
     // image
-    let thumbnailView: UIImageView = {
-        var image = UIImageView()
-        image.backgroundColor = UIColor.random()
-        
-        return image
-    }()
+    @IBOutlet weak var thumbnailView: UIImageView!
+//        = {
+//        var image = UIImageView()
+//        image.backgroundColor = UIColor.random()
+//
+//        return image
+//    }()
     
     // title
-    let programName: UILabel = {
-        var label = UILabel()
-        label.text = "program's name"
-        label.textColor = UIColor.white
-        
-        return label
-    }()
-    let channelName: UILabel = {
-        var label = UILabel()
-        label.text = "channel's name"
-        label.textColor = UIColor.white
-        
-        return label
-    }()
+    @IBOutlet weak var programName: UILabel!
+//        = {
+//        var label = UILabel()
+//        label.text = "program's name"
+//        label.textColor = UIColor.white
+//
+//        return label
+//    }()
+    
+    @IBOutlet weak var channelName: UILabel!
+//        = {
+//        var label = UILabel()
+//        label.text = "channel's name"
+//        label.textColor = UIColor.white
+//
+//        return label
+//    }()
+    
+    
     
     func setupViews() {
         //        frame.size = CGSize(width: 200, height: 100)
@@ -51,6 +49,7 @@ class CollectionCustomCell: UICollectionViewCell {
         addSubview(channelName)
         
         // setup constraint for element
+        
         self.addConstraints(with: "H:|-4-[v0]-4-|", views: thumbnailView)
         self.addConstraints(with: "H:|-4-[v0]-4-|", views: programName)
         self.addConstraints(with: "H:|-4-[v0]-4-|", views: channelName)

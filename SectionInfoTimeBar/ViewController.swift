@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "cellId"
 
-class ViewController: UICollectionViewController {
+class ViewController: UICollectionViewController{
     
     var listProgram = [(channel: String, program: ProgramEntity)]()
     
@@ -41,7 +41,7 @@ class ViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView!.register(CollectionCustomCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(CollectionCustomCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // subView manager
         setupView()
@@ -139,5 +139,6 @@ class ViewController: UICollectionViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 200)
     }
+    
 }
 

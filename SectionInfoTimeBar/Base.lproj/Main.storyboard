@@ -5,31 +5,64 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--TimeBar-->
         <scene sceneID="N5V-ut-lmG">
             <objects>
-                <collectionViewController id="psJ-qE-wnl" customClass="ViewController" customModule="SectionInfoTimeBar" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="TimeBar" id="psJ-qE-wnl" customClass="ViewController" customModule="SectionInfoTimeBar" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CCt-7n-lE9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FhA-Bo-NEl">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="234" height="184"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="7FH-2G-XZ4">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="7FH-2G-XZ4" customClass="CollectionCustomCell" customModule="SectionInfoTimeBar" customModuleProvider="target">
+                                <rect key="frame" x="70.5" y="0.0" width="234" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="234" height="184"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4wo-vJ-Gag">
+                                            <rect key="frame" x="13" y="25.5" width="208" height="133"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKk-4x-2pc">
+                                            <rect key="frame" x="96" y="0.0" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCD-Rk-nWs">
+                                            <rect key="frame" x="96" y="163.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="4wo-vJ-Gag" firstAttribute="leading" secondItem="7FH-2G-XZ4" secondAttribute="leadingMargin" constant="5" id="34l-Le-hWK"/>
+                                    <constraint firstItem="yKk-4x-2pc" firstAttribute="centerX" secondItem="7FH-2G-XZ4" secondAttribute="centerX" id="K6a-ar-Nbx"/>
+                                    <constraint firstItem="aCD-Rk-nWs" firstAttribute="top" secondItem="4wo-vJ-Gag" secondAttribute="bottom" constant="5" id="Nd1-aQ-PMY"/>
+                                    <constraint firstItem="4wo-vJ-Gag" firstAttribute="top" secondItem="yKk-4x-2pc" secondAttribute="bottom" constant="5" id="abC-fK-vQ9"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="4wo-vJ-Gag" secondAttribute="trailing" constant="5" id="atR-gH-65O"/>
+                                    <constraint firstAttribute="bottom" secondItem="aCD-Rk-nWs" secondAttribute="bottom" id="b4X-x2-hrq"/>
+                                    <constraint firstItem="aCD-Rk-nWs" firstAttribute="centerX" secondItem="7FH-2G-XZ4" secondAttribute="centerX" id="ukh-VX-cbO"/>
+                                    <constraint firstItem="yKk-4x-2pc" firstAttribute="top" secondItem="7FH-2G-XZ4" secondAttribute="top" id="z5K-3b-YR3"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="channelName" destination="yKk-4x-2pc" id="xs2-wO-smg"/>
+                                    <outlet property="programName" destination="aCD-Rk-nWs" id="FKe-aC-29H"/>
+                                    <outlet property="thumbnailView" destination="4wo-vJ-Gag" id="nUn-US-FGF"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -40,7 +73,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izK-yW-lU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="26"/>
+            <point key="canvasLocation" x="24.800000000000001" y="25.637181409295355"/>
         </scene>
     </scenes>
 </document>
