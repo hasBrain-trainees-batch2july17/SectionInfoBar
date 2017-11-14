@@ -9,19 +9,30 @@
 import UIKit
 
 class ChannelEntity: NSObject {
-    var name: String?
+    var timedisplay: String?
     var programs = [ProgramEntity]()
-    init(name: String, program: [ProgramEntity]) {
-        self.name = name
+
+    init(timedisplay: String, program: [ProgramEntity]) {
+        self.timedisplay = timedisplay
         self.programs = program
     }
-    
-    func getProgram(at time: Date)->ProgramEntity?{
-        for item in programs {
-            if (item.timeStart?.compare(lessThan: time))! && (item.timeEnd?.compare(greaterThan: time))! {
-                return item
+
+    init(json: [String: Any]) {
+        self.timedisplay = json["timedisplay"] as? String
+        if let items = json["items"] as? [Any] {
+            for item in items {
+                if let programJson = item as? [String: Any] {
+                    self.programs.append(ProgramEntity(json: programJson))
+                }
             }
         }
-        return nil
     }
+//    func getProgram(at time: Date)->ProgramEntity?{
+//        for item in programs {
+//            if (item.timeStart?.compare(lessThan: time))! && (item.timeEnd?.compare(greaterThan: time))! {
+//                return item
+//            }
+//        }
+//        return nil
+//    }
 }

@@ -8,16 +8,30 @@
 
 import UIKit
 
+struct ShowSlot {
+    var from: String?
+    var to: String?
+}
+
 class ProgramEntity: NSObject {
+    //
+    var id: String?
+    var imageURL : String?
+    var channelImageURL: String?
     var title: String?
-    var thumbnail: UIColor?
-    var timeStart: Date?
-    var timeEnd: Date?
-    
-    init(title: String, thumbnail: UIColor, start: String, end: String) {
-        self.title = title
-        self.thumbnail = thumbnail
-        self.timeStart = DateHelper.date(from: start)
-        self.timeEnd = DateHelper.date(from: end)
+    var subtitle: String?
+    var starttime: String?
+    var endtime: String?
+    var currentShowSlot: ShowSlot?
+
+    init(json: [String: Any]) {
+        self.id = json["id"] as? String
+        self.imageURL = json["image"] as? String
+        self.channelImageURL = json["channel_image"] as? String
+        self.title = json["title"] as? String
+        self.subtitle = json["subtitle"] as? String
+        self.starttime = json["starttime"] as? String
+        self.endtime = json["endtime"] as? String
+        self.currentShowSlot = ShowSlot(from: json["from"] as? String, to: json["to"] as? String)
     }
 }
